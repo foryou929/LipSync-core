@@ -9,7 +9,7 @@ try:
 except FileNotFoundError:
     print("Easy-Wav2Lip does not appear to have installed correctly.")
     print("Please try to install it again.")
-    print("https://github.com/anothermartz/Easy-Wav2Lip/issues")
+    print("https://github.com/foryou929/LipSync-core/issues")
     input()
     exit()
 
@@ -22,7 +22,7 @@ if os.path.exists(runfile):
 import webbrowser
 
 def open_github_link(event):
-    webbrowser.open("https://github.com/anothermartz/Easy-Wav2Lip?tab=readme-ov-file#advanced-tweaking")
+    webbrowser.open("https://github.com/foryou929/LipSync-core?tab=readme-ov-file#advanced-tweaking")
 
 def read_config():
     # Read the config.ini file
