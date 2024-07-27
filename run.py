@@ -5,7 +5,7 @@ import argparse
 from easy_functions import (format_time,
                             get_input_length,
                             get_video_details,
-                            show_video,
+                            # show_video,
                             g_colab)
 import contextlib
 import shutil
@@ -239,15 +239,15 @@ while True:
     os.makedirs("temp", exist_ok=True)
 
     # preview inputs (if enabled)
-    if preview_input:
-        print("input video:")
-        show_video(input_video)
-        if vocal_file != "":
-            print("input audio:")
-            display(Audio(input_audio))
-        else:
-            print("using", input_videofile, "for audio")
-        print("You may want to check now that they're the correct files!")
+    # if preview_input:
+    #     print("input video:")
+    #     show_video(input_video)
+    #     if vocal_file != "":
+    #         print("input audio:")
+    #         display(Audio(input_audio))
+    #     else:
+    #         print("using", input_videofile, "for audio")
+    #     print("You may want to check now that they're the correct files!")
 
     last_input_video = input_video
     last_input_audio = input_audio
