@@ -1,2 +1,5 @@
 env
+__pycache__
 checkpoints/*
+gfpgan
+installed.txt
