@@ -13,3 +13,5 @@ Wav2Lip_GAN.pth
 Wav2Lip.pk1
 Wav2Lip.pth
 installed.txt
+last_detected_face.pkl
+last_file.txt
