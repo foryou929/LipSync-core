@@ -40,7 +40,7 @@ working_directory = os.getcwd()
 # download and initialize both wav2lip models
 print("Downloading wav2lip essentials")
 load_file_from_url(
-    url="https://github.com/foryou929/LipSync-core/releases/download/Prerequesits/Wav2Lip_GAN.pth",
+    url="https://github.com/foryou929/LipSync-core/releases/download/1.0/Wav2Lip_GAN.pth",
     model_dir="checkpoints",
     progress=True,
     file_name="Wav2Lip_GAN.pth",
@@ -48,7 +48,7 @@ load_file_from_url(
 model = load_model(os.path.join(working_directory, "checkpoints", "Wav2Lip_GAN.pth"))
 print("Wav2lip_gan loaded")
 load_file_from_url(
-    url="https://github.com/foryou929/LipSync-core/releases/download/Prerequesits/Wav2Lip.pth",
+    url="https://github.com/foryou929/LipSync-core/releases/download/1.0/Wav2Lip.pth",
     model_dir="checkpoints",
     progress=True,
     file_name="Wav2Lip.pth",
@@ -59,7 +59,7 @@ print("wav2lip loaded")
 # download gfpgan files
 print("Downloading gfpgan essentials")
 load_file_from_url(
-    url="https://github.com/foryou929/LipSync-core/releases/download/Prerequesits/GFPGANv1.4.pth",
+    url="https://github.com/foryou929/LipSync-core/releases/download/1.0/GFPGANv1.4.pth",
     model_dir="checkpoints",
     progress=True,
     file_name="GFPGANv1.4.pth",
@@ -69,7 +69,7 @@ load_sr()
 # load face detectors
 print("Initializing face detectors")
 load_file_from_url(
-    url="https://github.com/foryou929/LipSync-core/releases/download/Prerequesits/shape_predictor_68_face_landmarks_GTX.dat",
+    url="https://github.com/foryou929/LipSync-core/releases/download/1.0/shape_predictor_68_face_landmarks_GTX.dat",
     model_dir="checkpoints",
     progress=True,
     file_name="shape_predictor_68_face_landmarks_GTX.dat",
