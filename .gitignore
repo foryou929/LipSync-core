@@ -1,5 +1,15 @@
 env
 __pycache__
-checkpoints/*
 gfpgan
+input
+output
+temp
+checkpoints/GFPGANv1.4.pth
+mouth_detector.pkl
+predictor.pkl
+shape_predictor_68_face_landmarks_GTX.dat
+Wav2Lip_GAN.pk1
+Wav2Lip_GAN.pth
+Wav2Lip.pk1
+Wav2Lip.pth
 installed.txt
