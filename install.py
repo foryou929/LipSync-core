@@ -1,44 +1,14 @@
 version = 'v1.0'
 
 import os
-import shutil
-import subprocess
-
-import os
-import shutil
-import subprocess
-import warnings
-from easy_functions import load_file_from_url, load_model, load_predictor
-
-warnings.filterwarnings("ignore", category=UserWarning, module="torchvision.transforms.functional_tensor")
-
-# Get the location of the basicsr package
-def get_basicsr_location():
-    result = subprocess.run(['pip', 'show', 'basicsr'], capture_output=True, text=True)
-    for line in result.stdout.split('\n'):
-        if 'Location: ' in line:
-            return line.split('Location: ')[1]
-    return None
-
-# Move and replace a file to the basicsr location
-def move_and_replace_file_to_basicsr(file_name):
-    basicsr_location = get_basicsr_location()
-    if basicsr_location:
-        destination = os.path.join(basicsr_location, file_name)
-        shutil.copyfile(file_name, destination)
-        print(f'File replaced at {destination}')
-    else:
-        print('Could not find basicsr location.')
-
-file_to_replace = 'degradations.py'
-move_and_replace_file_to_basicsr(file_to_replace)
-
 from enhance import load_sr
+from easy_functions import load_file_from_url, load_model, load_predictor
 
 working_directory = os.getcwd()
 
-# download and initialize both wav2lip models
+# Download and initialize both wav2lip models
 print("Downloading wav2lip essentials")
+
 load_file_from_url(
     url="https://github.com/foryou929/LipSync-core/releases/download/1.0/Wav2Lip_GAN.pth",
     model_dir="checkpoints",
@@ -47,6 +17,7 @@ load_file_from_url(
 )
 model = load_model(os.path.join(working_directory, "checkpoints", "Wav2Lip_GAN.pth"))
 print("Wav2lip_gan loaded")
+
 load_file_from_url(
     url="https://github.com/foryou929/LipSync-core/releases/download/1.0/Wav2Lip.pth",
     model_dir="checkpoints",
