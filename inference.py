@@ -548,14 +548,15 @@ mel_step_size = 16
 
 def main():
     args.img_size = 96
+    frame_number = 11
+
+    if os.path.isfile(args.face) and args.face.split(".")[1] in ["jpg", "png", "jpeg"]:
+        args.static = True
 
     if not os.path.isfile(args.face):
         raise ValueError("--face argument must be a valid path to video/image file")
 
-    if args.face.split(".")[1] in ["jpg", "png", "jpeg"]:
-        args.static = True
-        full_frames = [cv2.imread(args.face)]
-        fps = args.fps
+    elif args.face.split(".")[1] in ["jpg", "png", "jpeg"]:
 
     else:
         if args.fullres != 1:
@@ -656,7 +657,6 @@ def main():
             print("Starting...")
             frame_h, frame_w = full_frames[0].shape[:-1]
             fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-            out = cv2.VideoWriter("temp/result.mp4", fourcc, fps, (frame_w, frame_h))
 
         img_batch = torch.FloatTensor(np.transpose(img_batch, (0, 3, 1, 2))).to(device)
         mel_batch = torch.FloatTensor(np.transpose(mel_batch, (0, 3, 1, 2))).to(device)
@@ -690,10 +690,6 @@ def main():
                     p, last_mask = create_mask(p, cf)
 
             f[y1:y2, x1:x2] = p
-
-            out.write(f)
-
-    out.release()
 
     if str(args.preview_settings) == "False":
         print("converting to final video")
