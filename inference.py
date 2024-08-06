@@ -557,6 +557,8 @@ def main():
         raise ValueError("--face argument must be a valid path to video/image file")
 
     elif args.face.split(".")[1] in ["jpg", "png", "jpeg"]:
+        full_frames = [cv2.imread(args.face)]
+        fps = args.fps
 
     else:
         if args.fullres != 1:
