@@ -659,6 +659,7 @@ def main():
             print("Starting...")
             frame_h, frame_w = full_frames[0].shape[:-1]
             fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+            out = cv2.VideoWriter("temp/result.mp4", fourcc, fps, (frame_w, frame_h))
 
         img_batch = torch.FloatTensor(np.transpose(img_batch, (0, 3, 1, 2))).to(device)
         mel_batch = torch.FloatTensor(np.transpose(mel_batch, (0, 3, 1, 2))).to(device)
@@ -692,6 +693,9 @@ def main():
                     p, last_mask = create_mask(p, cf)
 
             f[y1:y2, x1:x2] = p
+
+    out.write(f)
+    out.release()
 
     if str(args.preview_settings) == "False":
         print("converting to final video")
