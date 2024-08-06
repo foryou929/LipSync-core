@@ -694,7 +694,8 @@ def main():
 
             f[y1:y2, x1:x2] = p
 
-    out.write(f)
+            out.write(f)
+            
     out.release()
 
     if str(args.preview_settings) == "False":
